@@ -192,13 +192,21 @@ console.log(
 
 function trimString(original, side) {
   // Якщо значення аргументу "side" дорівнює "start"
-  // Повертаємо рядок, в якому видалені пробіли на початку
-  // Якщо значення аргументу "side" дорівнює "end"
-  // Повертаємо рядок, в якому видалені пробіли в кінці
-  // Якщо значення аргументу "side" дорівнює "both"
-  // Повертаємо рядок, в якому видалені пробіли з обох сторін
-  // Якщо значення аргументу "side" не є ні "start", ні "end", ні "both", повертаємо повідомлення "Error: side should be either 'start', 'end' or 'both'"
-  return "Error: side should be either 'start', 'end' or 'both'";
+  if (side === "start") {
+    // Повертаємо рядок, в якому видалені пробіли на початку
+    return original.trimStart();
+  } else if (side === "end") {
+    // Якщо значення аргументу "side" дорівнює "end"
+    // Повертаємо рядок, в якому видалені пробіли в кінці
+    return original.trimEnd();
+  } else if (side === "both") {
+    // Якщо значення аргументу "side" дорівнює "both"
+    // Повертаємо рядок, в якому видалені пробіли з обох сторін
+    return original.trim();
+  } else {
+    // Якщо значення аргументу "side" не є ні "start", ні "end", ні "both"
+    return "Error: side should be either 'start', 'end' or 'both'";
+  }
 }
 
 console.log("Завдання 13 ====================================");
@@ -210,12 +218,13 @@ console.log('trimString(" 123 ", "middle")', trimString(" 123 ", "middle")); // 
 // Завдання 14: Напишіть функцію, яка буде перетворювати рядок в верхній або нижній регістр, в залежності від значення аргументу "caseType".
 
 function convertCase(original, caseType) {
-  // Якщо значення аргументу "caseType" дорівнює "upper"
-  // Повертаємо рядок, в якому всі букви перетворені в верхній регістр
-  // Якщо значення аргументу "caseType" дорівнює "lower"
-  // Повертаємо рядок, в якому всі букви перетворені в нижній регістр
-  // Якщо значення аргументу "caseType" не є ні "upper", ні "lower", повертаємо повідомлення "Error: caseType should be either 'upper' or 'lower'"
-  return "Error: caseType should be either 'upper' or 'lower'";
+  if (caseType === "upper") {
+    return original.toUpperCase();
+  } else if (caseType === "lower") {
+    return original.toLowerCase();
+  } else {
+    return "Error: caseType should be either 'upper' or 'lower'";
+  }
 }
 
 console.log("Завдання 14 ====================================");
@@ -227,6 +236,7 @@ console.log('convertCase("abc", "middle")', convertCase("abc", "middle")); // В
 
 function repeatString(string, times) {
   // Використовуємо метод repeat(), щоб повторити рядок певну кількість разів times
+  return string.repeat(times);
 }
 
 console.log("Завдання 15 ====================================");
@@ -236,6 +246,7 @@ console.log('repeatString("abc", 3)', repeatString("abc", 3)); // Виведе '
 
 function sliceString(string, startIndex, endIndex) {
   // Використовуємо метод slice(), щоб видалити частину рядка string між двома індексами startIndex та endIndex
+  return string.slice(startIndex, endIndex);
 }
 
 console.log("Завдання 16 ====================================");
@@ -248,6 +259,7 @@ console.log(
 
 function substringString(string, startIndex, endIndex) {
   // Використовуємо метод substring(), щоб видалити частину рядка string між двома індексами startIndex та endIndex
+  return string.substring(startIndex, endIndex);
 }
 
 console.log("Завдання 17 ====================================");
